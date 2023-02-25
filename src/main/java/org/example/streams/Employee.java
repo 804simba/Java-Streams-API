@@ -15,6 +15,10 @@ public class Employee {
         return ID;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public Double getSalary() {
         return salary;
     }

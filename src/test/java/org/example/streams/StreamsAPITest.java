@@ -4,9 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -133,5 +131,31 @@ class StreamsAPITest {
                 .skip(3)
                 .limit(5)
                 .toList();
+    }
+    @Test
+    void whenFindMin_thenGetMinElementFromStream() {
+        Employee firstEmp = employeeList.stream()
+                .min(Comparator.comparing(Employee::getID))
+                .orElseThrow(NoSuchElementException::new);
+
+        assertEquals(firstEmp.getID(), 1);
+    }
+    @Test
+    void whenFindMax_thenGetMaxElementFromStream() {
+        Employee maxSalEmp = employeeList.stream()
+                .max(Comparator.comparing(Employee::getSalary))
+                .orElseThrow(NoSuchElementException::new);
+        assertEquals(maxSalEmp.getSalary(), 300000.0);
+    }
+    @Test
+    void whenAppleMatch_thenReturnBoolean() {
+        List<Integer> integers = Arrays.asList(2, 4, 5, 6, 8);
+        boolean allEven = integers.stream().allMatch(i -> i % 2 == 0);
+        boolean oneEven = integers.stream().anyMatch(i -> i % 2 == 0);
+        boolean noneMultipleOfFour = integers.stream().noneMatch(i -> i % 4 == 0);
+
+        assertFalse(allEven);
+        assertTrue(oneEven);
+        assertFalse(noneMultipleOfFour);
     }
 }

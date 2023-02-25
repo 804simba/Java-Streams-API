@@ -19,6 +19,9 @@ and applying some additional logic or concatenating them, etc.) on data elements
 4. filter() this produces a new stream that contains elements of the original stream
 that pass a given test (Specified by a Predicate).
 
+5. reduce() it is a terminal operation that allows you to combine all the elements in a stream
+into a single value.
+
 6. toArray() it is used to get an array out of the stream.
 
 7. flatMap() it helps us flatten the data structure to simplify further operations.
@@ -57,3 +60,24 @@ as soon as n elements have been encountered;
 d. takeWhile(): returns a stream consisting of the longest prefix of elements that match a
 given predicate, and terminates as soon as an element that does not match the predicate
 is encountered.
+
+Lazy Evaluation
+Computation on the source data is only performed when the terminal operation is initiated,
+and source elements are consumed only as needed. All intermediate operations are lazy, so they
+are not executed until a result of a processing is actually needed.
+Lazy evaluation is the execution of intermediate operations on elements of a stream, when a terminal
+operation is invoked on a stream, which allows for efficient use of resources.
+
+Comparison Based Stream Operations
+1. sorted(): this sorts the stream elements based on the comparator passed into it.
+2. min() and max(): returns the minimum and maximum element in the stream respectively,
+based on a comparator. They return an Optional since a result may or may not exist (due to say filtering);
+3. distinct(): it does not take any argument and returns the distinct elements in the stream, eliminating
+duplicates. It uses the equals() method of the elements to decide wether two elements are equal or not.
+4. allMatch(), anyMatch(), and noneMatch(): these operations all take a predicate and return a boolean.
+based if the predicate is true for all the elements in the stream, or any one or no elements respectively.
+Short-circuiting is applied and processing is stopped as soon as the answer is determined.
+
+Java Stream Specializations
+There are primitive specializations for int, double, and long respectively which are IntStream, LongStream, and DoubleStream.
+
