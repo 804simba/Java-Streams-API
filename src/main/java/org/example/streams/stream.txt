@@ -81,3 +81,14 @@ Short-circuiting is applied and processing is stopped as soon as the answer is d
 Java Stream Specializations
 There are primitive specializations for int, double, and long respectively which are IntStream, LongStream, and DoubleStream.
 
+COLLECTORS.
+Collectors class provides a set of static methods for working with Java Streams. These methods are used to
+perform various operations on a stream and collect the results into a collection or other
+data structure.
+Some examples of operations that can be performed using the Collectors class:
+1. Collect the stream elements into a list or set: toList() and toSet();
+2. Collect the stream elements into a Map, with keys and values extracted from each element: toMap() method.
+3. Collect the stream elements into a single result using reduction operation, such as summing or counting:
+summingInt(), counting(), and reducing() methods.
+4. Group the stream elements by a certain criteria: groupingBy() method;
+5. Partition the stream elements into two groups, based on whether they satisfy a certain condition or not: partitioningBy().

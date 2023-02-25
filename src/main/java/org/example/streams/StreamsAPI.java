@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamsAPI {
@@ -58,11 +59,17 @@ public class StreamsAPI {
 
         // Stream Specialization
         // IntStream
-        Integer maxInt = integers.stream()
+        int maxInt = integers.stream()
                 .mapToInt(Integer::intValue)
                 .max()
                 .orElseThrow(NoSuchElementException::new);
         System.out.println("max Integer: " + maxInt);
+
+        // Advanced collect
+        String employeeNames = employeeList.stream()
+                .map(Employee::getName)
+                .collect(Collectors.joining(", "));
+        System.out.println("names of employees: " + employeeNames);
     }
     private static final Employee[] arrayOfEmps = {
             new Employee(1, "Jeff Bezos", 10.0),
