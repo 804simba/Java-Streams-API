@@ -1,0 +1,59 @@
+https://stackify.com/streams-guide-java-8/
+
+Java Streams are wrappers around a data source, allowing us to operate with that data source,
+and making bulk processing convenient and fast. A stream does not store data, and it does not
+modify the underlying data source.
+
+Java Streams is a feature introduced in Java 8 that allows you to process collections
+of data in a declarative way.
+
+1. forEach() is a terminal operation, i.e. after the operation is performed, the stream
+pipeline is considered consumed, and can no longer be used.
+
+2. map() produces a new stream after applying a function to each element of the original
+stream. The new stream could be of a different type.
+
+3. collect() performs mutable fold operations (repackaging elements to some data structures
+and applying some additional logic or concatenating them, etc.) on data elements held in the Stream instance.
+
+4. filter() this produces a new stream that contains elements of the original stream
+that pass a given test (Specified by a Predicate).
+
+6. toArray() it is used to get an array out of the stream.
+
+7. flatMap() it helps us flatten the data structure to simplify further operations.
+
+8. peek() it is an intermediate operation, which allows us to perform multiple operations
+on each element of the stream before any terminal operation is applied. It performs
+the specified operation on each element of the stream and returns a new stream which can
+be used further.
+
+9. count() it is a terminal operation which returns the count of elements in the stream.
+
+10. skip() it is an intermediate operation which returns a new stream after discarding
+the first n elements of the underlying stream. If the stream has fewer than n elements,
+then an empty stream is returned.
+
+METHOD TYPES AND PIPELINES
+Java streams operations are divided into stateful intermediate and stateful terminal operations.
+a. Intermediate operations such as filter() return a new stream on which further
+processing can be done.
+b. Terminal operations such as forEach(), mark the stream as consumed, after which
+point it can no longer be used further.
+
+A Stream pipeline consists of a stream source, followed by zero or more intermediate
+operations, and a terminal operation.
+
+SHORT CIRCUIT OPERATIONS
+These are operations that terminate the stream pipeline as soon as a certain condition
+is met, without processing the entire stream.
+Examples of Short Circuit operations:
+a. anyMatch(): this returns true if any element of the stream matches a given predicate.
+The operation terminates as soon as the predicate return true for any element.
+b. findFirst() It is a short-circuit operation, it returns an Optional for the first entry in the stream; the Optional
+can, of course, be empty; The operation terminates as soon as the first element is found.
+c. limit(): returns a stream consisting of the first n elements of the stream. It terminates
+as soon as n elements have been encountered;
+d. takeWhile(): returns a stream consisting of the longest prefix of elements that match a
+given predicate, and terminates as soon as an element that does not match the predicate
+is encountered.

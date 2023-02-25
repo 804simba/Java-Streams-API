@@ -1,0 +1,11 @@
+//    public static void test() {
+////        List<String> names = List.of("timothy", "angela", "naomi", "chikaodi");
+////   names.forEach(name -> System.out.println(name));
+//// // consumer function is an operation that takes in one input argument
+//// // and does not return any value.
+////
+//// names.forEach(name -> System.out.println(name));
+//// // Passing by Method, that is as an argument.
+//// names.forEach(System.out::println);
+////
+//    }
